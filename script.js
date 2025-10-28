@@ -7,6 +7,7 @@ const SEESAW_X = canvas.width / 2;
 const SEESAW_Y = canvas.height / 2;
 
 let activeAngle = 15;
+let weights = [];
 
 canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
@@ -20,9 +21,13 @@ canvas.addEventListener("click", (e) => {
   const rotY = dx * Math.sin(-rot) + dy * Math.cos(-rot); // assisted by AI
 
   if (Math.abs(rotX) <= SEESAW_LENGTH / 2 && Math.abs(rotY) <= 10) {
-    console.log("Seesaw hit at:", rotX);
+    weights.push({
+      x: SEESAW_X + rotX,
+      weight: Math.random() * 9 + 1,
+    });
+    console.log("Created object:", weights);
   } else {
-    console.log("Missed");
+    console.log("missed");
   }
 });
 
