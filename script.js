@@ -43,7 +43,7 @@ function draw() {
 
   weights.map((circle) => {
     const localX = circle.x - SEESAW_X;
-    const seesawY = 0;
+    const seesawY = -8;
     c.fillStyle = "green";
     c.beginPath();
     c.arc(localX, seesawY - 15, 10, 0, Math.PI * 2);
