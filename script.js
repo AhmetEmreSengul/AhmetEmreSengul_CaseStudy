@@ -12,7 +12,18 @@ canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
-  console.log("Clicked at:", x, y);
+
+  const rot = (activeAngle * Math.PI) / 180;
+  const dx = x - SEESAW_X;
+  const dy = y - SEESAW_Y;
+  const rotX = dx * Math.cos(-rot) - dy * Math.sin(-rot); // assisted by AI
+  const rotY = dx * Math.sin(-rot) + dy * Math.cos(-rot); // assisted by AI
+
+  if (Math.abs(rotX) <= SEESAW_LENGTH / 2 && Math.abs(rotY) <= 10) {
+    console.log("Seesaw hit at:", rotX);
+  } else {
+    console.log("Missed");
+  }
 });
 
 function draw() {
