@@ -8,6 +8,13 @@ const SEESAW_Y = canvas.height / 2;
 
 let activeAngle = 15;
 
+canvas.addEventListener("click", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  console.log("Clicked at:", x, y);
+});
+
 function draw() {
   c.clearRect(0, 0, canvas.width, canvas.height);
 
