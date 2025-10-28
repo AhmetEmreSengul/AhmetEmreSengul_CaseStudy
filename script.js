@@ -41,6 +41,15 @@ function draw() {
   c.fillStyle = "#8B4513";
   c.fillRect(-SEESAW_LENGTH / 2, -10, SEESAW_LENGTH, 20);
 
+  weights.map((circle) => {
+    const localX = circle.x - SEESAW_X;
+    const seesawY = 0;
+    c.fillStyle = "green";
+    c.beginPath();
+    c.arc(localX, seesawY - 15, 10, 0, Math.PI * 2);
+    c.fill();
+  });
+
   c.restore();
 
   c.fillStyle = "#333";
