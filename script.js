@@ -53,7 +53,7 @@ canvas.addEventListener("click", (e) => {
 function draw() {
   c.clearRect(0, 0, canvas.width, canvas.height);
 
-  activeAngle = tiltAngle;
+  activeAngle += (tiltAngle - activeAngle) * 0.1; // assisted by AI
 
   c.save();
   c.translate(SEESAW_X, SEESAW_Y);
