@@ -24,6 +24,7 @@ canvas.addEventListener("click", (e) => {
     weights.push({
       x: SEESAW_X + rotX,
       weight: Math.random() * 9 + 1,
+      distance: Math.abs(x - SEESAW_X),
     });
     console.log("Created object:", weights);
   } else {
@@ -44,7 +45,7 @@ function draw() {
   weights.map((circle) => {
     const localX = circle.x - SEESAW_X;
     const seesawY = -8;
-    c.fillStyle = `hsl(${circle.weight * 36}, 70%, 60%)`;
+    c.fillStyle = `hsl(${circle.weight * 36}, 70%, 60%)`; // assisted bu AI
     c.beginPath();
     c.arc(localX, seesawY - 15, 10, 0, Math.PI * 2);
     c.fill();
