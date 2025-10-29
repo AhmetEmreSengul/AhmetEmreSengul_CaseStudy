@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -32,6 +36,32 @@ canvas {
   background-color: #0f299b60;
   border-radius: 20px;
   font-weight: 500;
+}
+
+#activites {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+
+#distance {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+  height: 150px;
+  text-align: center;
+  background-color: rgb(10, 52, 88);
+  border-radius: 12px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+button {
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
 }
 
 @media (max-width: 450px) {

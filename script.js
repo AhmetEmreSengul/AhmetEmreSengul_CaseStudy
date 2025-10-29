@@ -25,12 +25,12 @@ function displayWeights() {
 }
 
 function displayWeightInfo() {
+  let text = "";
   weights.map((circle) => {
-    document.getElementById(
-      "distance"
-    ).textContent = `Object Weight : ${Math.round(
+    text += `Object Weight : ${Math.round(
       circle.weight
     )} |  Distance from pivot : ${circle.distance}`;
+    document.getElementById("distance").textContent = text;
   });
 }
 
