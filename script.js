@@ -27,9 +27,9 @@ function displayWeights() {
 function displayWeightInfo() {
   let text = "";
   weights.map((circle) => {
-    text += `Object Weight : ${Math.round(
-      circle.weight
-    )} |  Distance from pivot : ${circle.distance}`;
+    text += ` Object Weight : ${circle.weight.toFixed(
+      1
+    )} |  Distance from pivot : ${circle.distance} `;
     document.getElementById("distance").textContent = text;
   });
 }
@@ -95,6 +95,11 @@ function draw() {
     c.beginPath();
     c.arc(localX, seesawY - 15, 10, 0, Math.PI * 2);
     c.fill();
+
+    c.fillStyle = "white";
+    c.font = "10px sans-serif";
+    c.textAlign = "center";
+    c.fillText(circle.weight.toFixed(1), localX, seesawY - 30);
   });
 
   c.restore();
