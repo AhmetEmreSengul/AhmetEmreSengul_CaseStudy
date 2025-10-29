@@ -24,6 +24,16 @@ function displayWeights() {
   document.getElementById("right-weight").textContent = right.toFixed(1);
 }
 
+function displayWeightInfo() {
+  weights.map((circle) => {
+    document.getElementById(
+      "distance"
+    ).textContent = `Object Weight : ${Math.round(
+      circle.weight
+    )} |  Distance from pivot : ${circle.distance}`;
+  });
+}
+
 function torque() {
   let leftTorque = 0;
   let rightTorque = 0;
@@ -38,6 +48,7 @@ function torque() {
   });
   tiltAngle = Math.max(-30, Math.min(30, (rightTorque - leftTorque) / 10));
   displayWeights();
+  displayWeightInfo();
   console.log(leftTorque, rightTorque, tiltAngle);
 }
 
