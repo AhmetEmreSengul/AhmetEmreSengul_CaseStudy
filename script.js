@@ -10,6 +10,20 @@ let activeAngle = 0;
 let tiltAngle = 0;
 let weights = [];
 
+function displayWeights() {
+  let left = 0;
+  let right = 0;
+  weights.map((circle) => {
+    if (circle.x < SEESAW_X) {
+      left += circle.weight;
+    } else {
+      right += circle.weight;
+    }
+  });
+  document.getElementById("left-weight").textContent = left.toFixed(1);
+  document.getElementById("right-weight").textContent = right.toFixed(1);
+}
+
 function torque() {
   let leftTorque = 0;
   let rightTorque = 0;
@@ -23,6 +37,7 @@ function torque() {
     }
   });
   tiltAngle = Math.max(-30, Math.min(30, (rightTorque - leftTorque) / 10));
+  displayWeights();
   console.log(leftTorque, rightTorque, tiltAngle);
 }
 
