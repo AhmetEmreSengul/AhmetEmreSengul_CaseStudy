@@ -7,6 +7,7 @@ const SEESAW_X = canvas.width / 2;
 const SEESAW_Y = canvas.height / 2;
 
 let activeAngle = 0;
+let tiltAngle = 0;
 let weights = [];
 
 function torque() {
@@ -21,7 +22,8 @@ function torque() {
       rightTorque += torque;
     }
   });
-  console.log(leftTorque, rightTorque);
+  tiltAngle = Math.max(-30, Math.min(30, (rightTorque - leftTorque) / 10));
+  console.log(leftTorque, rightTorque, tiltAngle);
 }
 
 canvas.addEventListener("click", (e) => {
@@ -50,6 +52,8 @@ canvas.addEventListener("click", (e) => {
 
 function draw() {
   c.clearRect(0, 0, canvas.width, canvas.height);
+
+  activeAngle = tiltAngle;
 
   c.save();
   c.translate(SEESAW_X, SEESAW_Y);
