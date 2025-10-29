@@ -38,9 +38,8 @@ function torque() {
   let leftTorque = 0;
   let rightTorque = 0;
   weights.map((circle) => {
-    const dist = circle.x - SEESAW_X;
-    const torque = circle.weight * Math.abs(dist); // assisted by AI
-    if (dist < 0) {
+    const torque = circle.weight * Math.abs(circle.distance); // assisted by AI
+    if (circle.distance < 0) {
       leftTorque += torque;
     } else {
       rightTorque += torque;
