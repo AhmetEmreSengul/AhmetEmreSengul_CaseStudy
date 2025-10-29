@@ -6,8 +6,23 @@ const SEESAW_LENGTH = 400;
 const SEESAW_X = canvas.width / 2;
 const SEESAW_Y = canvas.height / 2;
 
-let activeAngle = 15;
+let activeAngle = 0;
 let weights = [];
+
+function torque() {
+  let leftTorque = 0;
+  let rightTorque = 0;
+  weights.map((circle) => {
+    const dist = circle.x - SEESAW_X;
+    const torque = circle.weight * Math.abs(dist); // assisted by AI
+    if (dist < 0) {
+      leftTorque += torque;
+    } else {
+      rightTorque += torque;
+    }
+  });
+  console.log(leftTorque, rightTorque);
+}
 
 canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
@@ -24,12 +39,13 @@ canvas.addEventListener("click", (e) => {
     weights.push({
       x: SEESAW_X + rotX,
       weight: Math.random() * 9 + 1,
-      distance: Math.abs(x - SEESAW_X),
+      distance: x - SEESAW_X,
     });
     console.log("Created object:", weights);
   } else {
     console.log("missed");
   }
+  torque();
 });
 
 function draw() {
