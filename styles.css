@@ -58,6 +58,17 @@ canvas {
   overflow-x: hidden;
 }
 
+#tiltAngle {
+  color: white;
+  padding: 14px;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(10, 52, 88);
+  font-size: large;
+  border-radius: 7px;
+  border-style: none;
+}
+
 button {
   color: white;
   padding: 14px;
