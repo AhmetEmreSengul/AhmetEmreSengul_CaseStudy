@@ -14,7 +14,7 @@ function displayWeights() {
   let left = 0;
   let right = 0;
   weights.map((circle) => {
-    if (circle.x < SEESAW_X) {
+    if (circle.distance < 0) {
       left += circle.weight;
     } else {
       right += circle.weight;
@@ -32,6 +32,23 @@ function displayWeightInfo() {
     )} |  Distance from pivot : ${circle.distance} `;
     document.getElementById("distance").textContent = text;
   });
+}
+
+const saved = localStorage.getItem("seesaw");
+if (saved) {
+  const state = JSON.parse(saved);
+  weights = state.weights || [];
+  activeAngle = activeAngle.angle || 0;
+}
+
+function save() {
+  localStorage.setItem(
+    "seesaw",
+    JSON.stringify({
+      weights,
+      angle: activeAngle,
+    })
+  );
 }
 
 function torque() {
@@ -73,6 +90,7 @@ canvas.addEventListener("click", (e) => {
     console.log("missed");
   }
   torque();
+  save();
 });
 
 function draw() {
@@ -113,4 +131,5 @@ function draw() {
 
   requestAnimationFrame(draw);
 }
+torque();
 draw();
