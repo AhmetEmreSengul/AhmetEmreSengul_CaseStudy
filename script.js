@@ -63,6 +63,10 @@ function torque() {
     }
   });
   tiltAngle = Math.max(-30, Math.min(30, (rightTorque - leftTorque) / 10));
+  document.getElementById("tiltAngle").textContent = `${Math.abs(
+    tiltAngle.toFixed(1)
+  )}°`;
+
   displayWeights();
   displayWeightInfo();
   console.log(leftTorque, rightTorque, tiltAngle);
