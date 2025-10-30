@@ -114,7 +114,7 @@ function draw() {
   c.translate(SEESAW_X, SEESAW_Y);
   c.rotate((activeAngle * Math.PI) / 180);
 
-  c.fillStyle = "#8B4513";
+  c.fillStyle = "#fb8500";
   c.fillRect(-SEESAW_LENGTH / 2, -10, SEESAW_LENGTH, 20);
 
   weights.map((circle) => {
@@ -133,7 +133,7 @@ function draw() {
 
   c.restore();
 
-  c.fillStyle = "#333";
+  c.fillStyle = "#023047";
   c.beginPath();
   c.moveTo(SEESAW_X - 15, SEESAW_Y);
   c.lineTo(SEESAW_X + 15, SEESAW_Y);

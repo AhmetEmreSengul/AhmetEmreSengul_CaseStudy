@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #667eea;
   font-family: system-ui, -apple-system, sans-serif;
   color: white;
 }
@@ -21,6 +21,7 @@ body {
 canvas {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  cursor: crosshair;
 }
 
 #weight-info {
@@ -33,7 +34,7 @@ canvas {
 
 #weight-container {
   padding: 10px;
-  background-color: #0f299b60;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   font-weight: 500;
 }
@@ -93,5 +94,12 @@ button:active {
 @media (max-width: 450px) {
   #weight-info {
     flex-direction: column;
+  }
+  #activites {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 }
