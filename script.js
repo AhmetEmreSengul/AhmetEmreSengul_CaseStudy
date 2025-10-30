@@ -93,6 +93,13 @@ canvas.addEventListener("click", (e) => {
   save();
 });
 
+document.getElementById("reset").addEventListener("click", () => {
+  weights = [];
+  activeAngle = 0;
+  tiltAngle = 0;
+  localStorage.removeItem("seesaw");
+});
+
 function draw() {
   c.clearRect(0, 0, canvas.width, canvas.height);
 
