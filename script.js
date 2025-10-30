@@ -98,6 +98,7 @@ document.getElementById("reset").addEventListener("click", () => {
   activeAngle = 0;
   tiltAngle = 0;
   localStorage.removeItem("seesaw");
+  window.location.reload();
 });
 
 function draw() {
