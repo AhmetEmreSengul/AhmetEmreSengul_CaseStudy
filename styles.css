@@ -59,9 +59,24 @@ canvas {
 }
 
 button {
-  padding: 5px;
+  color: white;
+  padding: 14px;
   width: fit-content;
   height: fit-content;
+  background-color: rgb(10, 52, 88);
+  font-size: large;
+  border-radius: 7px;
+  border-style: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.15);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+button:active {
+  transform: scale(0.9);
 }
 
 @media (max-width: 450px) {
